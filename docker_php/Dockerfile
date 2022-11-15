@@ -1,16 +1,13 @@
-FROM php
+FROM php:8.0-apache
 
 LABEL maintainer="hoplin"
 LABEL email="jhoplin7259@gmail.com"
 
-# Initiate apt-get package manager
 RUN apt-get update -y
 RUN apt-get upgrade -y
 
-# Get php composer
-COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+RUN apt-get install -y git
+RUN apt-get install -y gcc
 
-COPY . /usr/src
-WORKDIR /usr/src
-
-CMD [ "php", "index.php" ]
+VOLUME [ "/var/www/html" ]
+EXPOSE 80

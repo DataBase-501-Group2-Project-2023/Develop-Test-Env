@@ -13,5 +13,11 @@ docker build -t (image name) .
 2. Run image
 
 ```bash
-docker run -itd --rm --name (container image) (image name)
+docker run -d -n (container name) -v (local volume directory):/var/www/html -p (local port):80 (image name)
+```
+
+3. Access URL
+
+```text
+127.0.0.1:(local port)
 ```
