@@ -17,12 +17,13 @@ RUN apt-get install php8.0 -y
 # Install apache-php
 RUN apt-get install libapache2-mod-php -y
 # Install essential utils
-RUN apt-get install git gcc libaio1 wget unzip php-dev php-pear build-essential vim -y
-# Restart apache2
-RUN service apache2 restart
+RUN apt-get install git gcc libaio1 wget unzip php-dev php-pear build-essential curl vim -y
+# # Restart apache2
+# RUN service apache2 restart
 # Install SSH
 RUN apt-get install openssh-server -y
 
+# Setting Oracle Client and OCI8
 RUN mkdir -p /usr/lib/oracle/client\
 && cd /usr/lib/oracle/client\
 && wget https://download.oracle.com/otn_software/linux/instantclient/191000/instantclient-basic-linux.arm64-19.10.0.0.0dbru.zip\
@@ -52,6 +53,16 @@ RUN mkdir -p /usr/lib/oracle/client\
 # ln[39] : Add to mods-available
 # ln[40] : Make symbolic link about oci.ini
 
+# Install composer & laravel
+RUN cd ~\
+&& curl -sS https://getcomposer.org/installer | php\
+&& mv composer.phar /usr/local/bin/composer\
+&& chmod +x /usr/local/bin/composer\
+&& composer global require laravel/installer\
+&& ln -s /root/.config/composer/vendor/bin/laravel /usr/bin/laravel
+
+# Set working directory
+WORKDIR /var/www/html
 # Volume : PHP default volume
 VOLUME [ "/var/www/html" ]
 # Port : 22 - ssh 80 - web server index

@@ -7,6 +7,8 @@ Docker : PHP Env
     - PHP Basic Extensions
     - OCI8
     - Oracle Instant Client(Basic, SDK)
+    - PHP Composer
+    - PHP Laravel
 ***
 ## Warning
 - **This Docker Image is only available to x86(64bit) CPU"**
