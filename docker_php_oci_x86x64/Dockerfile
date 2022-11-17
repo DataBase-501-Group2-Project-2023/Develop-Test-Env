@@ -9,7 +9,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Seoul
 
 # Update packages
-RUN apt-get update && apt-get upgrade
+RUN apt-get update -y && apt-get upgrade -y
 # Install tzdata
 RUN apt-get install tzdata -y
 # Install php
