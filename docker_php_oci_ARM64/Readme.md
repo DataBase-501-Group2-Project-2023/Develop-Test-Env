@@ -7,6 +7,11 @@ Docker : PHP Env
     - PHP Basic Extensions
     - OCI8
     - Oracle Instant Client(Basic, SDK)
+- Volume
+    - /var/www/html
+- Port
+    - 22 : SSH
+    - 80 : PHP / Apache2
 ***
 ## Warning
 - **This Docker Image is only available to ARM 64 CPU"**
