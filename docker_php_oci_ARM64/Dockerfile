@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:rolling
 
 LABEL maintainer="hoplin"
 LABEL email="jhoplin7259@gmail.com"
