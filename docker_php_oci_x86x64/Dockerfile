@@ -35,7 +35,7 @@ RUN mkdir -p /usr/lib/oracle/client\
 && echo "ORACLE_HOME=/usr/lib/oracle/client/lib" >> /etc/profile\
 && ldconfig\
 && pecl channel-update pecl.php.net\
-&& echo 'instantclient,/usr/lib/oracle/client/lib/' | pecl install oci8\
+&& echo 'instantclient,/usr/lib/oracle/client/lib/' | pecl install oci8-3.2.0\
 && echo "extension=oci8.so" >> /etc/php/8.1/cli/php.ini\
 && cd /etc/php/8.1/mods-available && echo "extension=oci8.so" >> oci.ini\
 && cd /etc/php/8.1/apache2/conf.d && ln -s /etc/php/8.1/mods-available/oci.ini 20-oci.ini
